@@ -27,6 +27,19 @@ void reverse1(NODE* &head) {
   head = prev;
 }
 
+void reverse2(NODE* &head) {
+    NODE* first;
+    NODE* rest;
+    if (head == nullptr) { return; }
+    first = head;
+    rest = first->next;
+    if (rest == nullptr) { return; }
+    reverse2(rest);
+    first->next->next = first;
+    first->next = nullptr;
+    head = rest;   
+}
+
 void printnodes(NODE *head) {
     while(head != NULL) {
         cout<<head->data<<" ";
@@ -37,14 +50,15 @@ void printnodes(NODE *head) {
 int main() {
 
   NODE* head = new NODE();
-  push(&head, 1);
+  head->data = 1;
   push(&head, 2);
   push(&head, 3);
   push(&head, 4);
+  push(&head, 5);
 
   cout << "Linked List Before Reversing" << endl;
   printnodes(head);
-  reverse1(head);
+  reverse2(head);
   cout << endl;
   cout << "Linked List After Reversing"<<endl;
   printnodes(head);
