@@ -1,0 +1,4 @@
+c) So sánh thời gian chạy của hai hàm trên.
+- Với reverse1(NODE* &head) sử dụng kỹ thuật lặp có độ phức tạp là O(N) do lặp qua mỗi phần tử ít nhất 1 lần.
+- Với reverser2(NODE* &head) sử dụng kỹ thuật đệ qui cũng tương tự có độ phức tạp O(N).
+=> Vậy thời gian chạy của 2 hàm trên là tương đương nhau.
