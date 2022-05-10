@@ -148,6 +148,18 @@ int main(int argc, char **argv) {
 		viqr_2_utf8(viqr_utf8_map, in_file_name, out_file_name);
 		cout << "Convert VIQR to UTF8 done" << endl;
 	}
+	if (mode == 2) {
+		cout << "Converting UTF8 to VIQR..." << endl;
+		// Build UTF8 -> VIQR charset map
+		map<const char*, const char*, cmp_str> utf8_viqr_map;
+		for (int i=0; i<arr_length; i++) {
+			utf8_viqr_map[CHARSET_UTF8[i]] = CHARSET_VIQR[i];
+		}
+		// Convert VIQR -> UTF8
+		viqr_2_utf8(utf8_viqr_map, in_file_name, out_file_name);
+		cout << "Convert VIQR to UTF8 done" << endl;
+	}
+	
 
     return 0;
 }
